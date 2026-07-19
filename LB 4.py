@@ -1,57 +1,22 @@
 import numpy as np
+
+# a) Mean of rows and columns
 arr = np.random.randint(1, 100, (3, 4))
-print("Random 2D Array:")
-print(arr)
+print("Array:\n", arr)
+print("Row Mean:", np.mean(arr, axis=1))
+print("Column Mean:", np.mean(arr, axis=0))
 
-print("\nMean of Rows (Axis=1):")
-print(np.mean(arr, axis=1))
+# b) Minimum and Maximum
+a = np.array(list(map(int, input("Enter elements: ").split())))
+print("Minimum:", np.min(a))
+print("Maximum:", np.max(a))
 
-print("\nMean of Columns (Axis=0):")
-print(np.mean(arr, axis=0))
+# c) Add a constant to every element
+c = int(input("Enter constant: "))
+print("Result:", a + c)
 
-n = int(input("\nEnter number of elements: "))
-
-print("Enter the elements:")
-
-array = np.array([int(input()) for i in range(n)])
-
-print("\nArray:")
-print(array)
-
-print("Minimum Value:", np.min(array))
-print("Maximum Value:", np.max(array))
-
-size = int(input("\nEnter size of the array: "))
-
-print("Enter the elements:")
-
-arr1 = np.array([int(input()) for i in range(size)])
-
-constant = int(input("Enter the constant value: "))
-
-result = arr1 + constant
-
-print("\nOriginal Array:")
-print(arr1)
-
-print("Array after Adding Constant:")
-print(result)
-
-rows = int(input("\nEnter number of rows: "))
-cols = int(input("Enter number of columns: "))
-
-print("Enter the matrix elements:")
-
-matrix = np.array([[int(input()) for j in range(cols)] for i in range(rows)])
-
-print("\nEnter", rows, "constants (one for each row):")
-
-constants = np.array([int(input()) for i in range(rows)])
-
-result = matrix * constants.reshape(rows, 1)
-print("\nOriginal Matrix:")
-print(matrix)
-print("\nConstants:")
-print(constants)
-print("\nMatrix after Row-wise Multiplication:")
-print(result)
+# d) Row-wise multiplication
+r, col = map(int, input("Enter rows and columns: ").split())
+m = np.array([list(map(int, input().split())) for i in range(r)])
+k = np.array(list(map(int, input("Enter row constants: ").split())))
+print("Result:\n", m * k.reshape(r, 1))s
